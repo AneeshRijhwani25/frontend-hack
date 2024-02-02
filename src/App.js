@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import Navbar from './components/Navbar';
+import Card from './components/Card';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="flex">
+        <div className="">
+          {/* Sidebar */}
+          <Sidebar />
+        </div>
+        <div className="w-full">
+          {/* Header */}
+          <Navbar />
+          {/* Main Content */}
+          <div className="flex flex-wrap gap-4 m-4 ">
+            {/* Adjust margin here */}
+            <Card icon={faUsers} title="Card Title" />
+            <Card icon={faUsers} title="Card Title" />
+            <Card icon={faUsers} title="Card Title" />
+            {/* Add more content as needed */}
+          </div>
+        </div>
+      </div>
+    </Router>
   );
 }
 
